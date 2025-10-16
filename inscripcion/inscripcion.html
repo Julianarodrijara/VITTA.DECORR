@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción - Vitta.Decorr</title>
+  <link rel="stylesheet" href="../styles/inscripcion.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="menu-left">
+        <a href="../index/index.html" class="nav-link">Inicio</a>
+        <a href="../productos.html" class="nav-link">Productos</a>
+        <a href="#" class="nav-link active">Inscripción</a>
+        <a href="../carrito.html" class="nav-link">Carrito 🛒</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo Vitta.Decorr" class="logo-img">
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="inscripcion-section">
+    <div class="form-container">
+      <h1>Únete a la comunidad Vitta.Decorr 💙</h1>
+      <p>Por solo <strong>$20.000 COP</strong> obtén acceso a nuestras guías y tutoriales premium para crear arte y bienestar desde casa.</p>
+
+      <form id="registroForm" class="registro-form">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmar">Confirmar contraseña:</label>
+        <input type="password" id="confirmar" name="confirmar" required>
+
+        <label for="metodo">Método de pago:</label>
+        <select id="metodo" name="metodo" required>
+          <option value="">Selecciona un método</option>
+          <option value="nequi">Nequi</option>
+          <option value="daviplata">Daviplata</option>
+          <option value="bancolombia">Bancolombia</option>
+        </select>
+
+        <button type="submit" class="btn">Pagar e Inscribirme</button>
+      </form>
+
+      <!-- Mensaje oculto -->
+      <div id="mensajeExito" class="mensaje-exito" style="display:none;">
+        <h2>🎉 ¡Bienvenida a Vitta.Decorr!</h2>
+        <p>Tu cuenta ha sido creada y tu suscripción está activa.  
+        Ahora puedes acceder a nuestras guías y tutoriales premium 💐</p>
+        <a href="../index/index.html" class="btn">Volver al Inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vitta.Decorr — Artesanía para el alma 💙</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const form = document.getElementById("registroForm");
+    const mensaje = document.getElementById("mensajeExito");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const pass = document.getElementById("password").value;
+      const conf = document.getElementById("confirmar").value;
+
+      if (pass !== conf) {
+        alert("⚠️ Las contraseñas no coinciden. Intenta nuevamente.");
+        return;
+      }
+
+      // Simulación de registro exitoso
+      form.style.display = "none";
+      mensaje.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>

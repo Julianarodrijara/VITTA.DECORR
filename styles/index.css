@@ -1,0 +1,166 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f5f2;
+  color: #4a3c31;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b0c8c2;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-left {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  color: #4a3c31;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #6d4c41; 
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to right, #f5ebe0, #e3d5ca);
+  padding: 60px 50px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #4a3c31;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #5b4634;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.btn {
+  background-color: #a3c4bc;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #8baaa3;
+}
+
+
+.hero-image img {
+  width: 380px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.productos {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fdfbf8;
+}
+
+.productos h2 {
+  font-size: 2rem;
+  color: #4a3c31;
+  margin-bottom: 40px;
+}
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #e3d5ca;
+  border-radius: 12px;
+  width: 250px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card p {
+  color: #4a3c31;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+
+.inscripcion {
+  background-color: #b0c8c2;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.inscripcion h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.inscripcion p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: #fdfbf8;
+}
+
+
+footer {
+  background-color: #b0c8c2;
+  color: #4a3c31;
+  text-align: center;
+  padding: 20px;
+  font-weight: 500;
+}

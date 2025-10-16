@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - Vitta.Decorr</title>
+  <link rel="stylesheet" href="../styles/productos.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="menu-left">
+        <a href="../index/index.html" class="nav-link">Inicio</a>
+        <a href="#" class="nav-link active">Productos</a>
+        <a href="../inscripcion/inscripcion.html" class="nav-link">Inscripción</a>
+        <a href="../carrito/carrito.html" class="nav-link">Carrito 🛒</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo Vitta.Decorr" class="logo-img">
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN DE PRODUCTOS -->
+  <section class="productos-section">
+    <h1>Productos terapéuticos y creativos 💙</h1>
+    <p class="intro">Descubre nuestras manualidades diseñadas para relajar, sanar y conectar contigo misma.</p>
+
+    <div class="productos-grid">
+      
+      <!-- Producto 1 -->
+      <div class="producto-card">
+        <img src="../img/kit-crochet.jpg" alt="Kit Terapéutico de Crochet">
+        <h3>Kit Terapéutico (Crochet)</h3>
+        <p>Incluye hilos, agujas y guía terapéutica digital.</p>
+        <span class="precio">$30.000</span>
+        <button class="btn agregar" data-nombre="Kit Terapéutico (Crochet)" data-precio="30000">Agregar al carrito</button>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="producto-card">
+        <img src="../img/kit-flores.jpg" alt="Kit Flores en Tela">
+        <h3>Kit Flores en Tela</h3>
+        <p>Crea flores únicas con técnicas relajantes y guiadas.</p>
+        <span class="precio">$30.000</span>
+        <button class="btn agregar" data-nombre="Kit Flores en Tela" data-precio="30000">Agregar al carrito</button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="producto-card">
+        <img src="../img/suscripcion.jpg" alt="Suscripción Premium">
+        <h3>Suscripción Premium</h3>
+        <p>Acceso mensual a tutoriales y guías exclusivas.</p>
+        <span class="precio">$20.000</span>
+        <button class="btn agregar" data-nombre="Suscripción Premium" data-precio="20000">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vitta.Decorr — Artesanía para el alma 💙</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const botones = document.querySelectorAll('.agregar');
+
+    // Recuperar carrito existente o crear uno nuevo
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    botones.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const nombre = boton.dataset.nombre;
+        const precio = parseInt(boton.dataset.precio);
+
+        // Verificar si el producto ya está en el carrito
+        const productoExistente = carrito.find(p => p.nombre === nombre);
+        if (productoExistente) {
+          productoExistente.cantidad += 1;
+        } else {
+          carrito.push({ nombre, precio, cantidad: 1 });
+        }
+
+        // Guardar carrito
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert(`🧺 ${nombre} se agregó al carrito.`);
+      });
+    });
+  </script>
+
+</body>
+</html>

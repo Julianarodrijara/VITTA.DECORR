@@ -1,0 +1,157 @@
+/* 🌿 Estilos generales */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f5f2;
+  color: #4a3c31;
+}
+
+/* ----- NAVBAR ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b0c8c2; /* azul pastel */
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-left {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  color: #4a3c31;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #6d4c41; /* marrón cálido */
+}
+
+/* ----- LOGO ----- */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 55px;
+  width: auto;
+}
+
+/* ----- SECCIÓN DE INSCRIPCIÓN ----- */
+.inscripcion-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #f5ebe0, #e3d5ca);
+  min-height: 80vh;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.form-container h1 {
+  color: #4a3c31;
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  color: #5b4634;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* ----- FORMULARIO ----- */
+.registro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.registro-form label {
+  text-align: left;
+  font-weight: 600;
+  color: #4a3c31;
+}
+
+.registro-form input,
+.registro-form select {
+  padding: 10px;
+  border: 1px solid #c2b8af;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.registro-form input:focus {
+  border-color: #a3c4bc;
+  box-shadow: 0 0 5px rgba(163, 196, 188, 0.5);
+}
+
+.btn {
+  background-color: #a3c4bc;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #8baaa3;
+  transform: scale(1.03);
+}
+
+/* ----- MENSAJE DE ÉXITO ----- */
+.mensaje-exito {
+  background-color: #ffffff;
+  border: 2px solid #a3c4bc;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.mensaje-exito h2 {
+  color: #4a3c31;
+  margin-bottom: 10px;
+}
+
+.mensaje-exito p {
+  color: #5b4634;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* ----- FOOTER ----- */
+footer {
+  background-color: #b0c8c2;
+  color: #4a3c31;
+  text-align: center;
+  padding: 20px;
+  font-weight: 500;
+}
+
+/* ----- ANIMACIONES ----- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - Vitta.Decorr</title>
+  <link rel="stylesheet" href="../styles/carrito.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="menu-left">
+        <a href="../index/index.html" class="nav-link">Inicio</a>
+        <a href="../productos.html" class="nav-link">Productos</a>
+        <a href="../inscripcion/inscripcion.html" class="nav-link">Inscripción</a>
+        <a href="#" class="nav-link active">Carrito 🛒</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo Vitta.Decorr" class="logo-img">
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN DEL CARRITO -->
+  <section class="carrito-section">
+    <div class="carrito-container">
+      <h1>Tu carrito de compras 💙</h1>
+
+      <table class="carrito-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="carrito-body">
+          <tr>
+            <td>Kit Terapéutico (Crochet)</td>
+            <td>$30.000</td>
+            <td><input type="number" class="cantidad" value="1" min="1"></td>
+            <td class="subtotal">$30.000</td>
+            <td><button class="eliminar">❌</button></td>
+          </tr>
+          <tr>
+            <td>Suscripción Premium</td>
+            <td>$20.000</td>
+            <td><input type="number" class="cantidad" value="1" min="1"></td>
+            <td class="subtotal">$20.000</td>
+            <td><button class="eliminar">❌</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="carrito-total">
+        <h2>Total: <span id="total">$50.000</span></h2>
+        <button id="pagar-btn" class="btn">Proceder al pago</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vitta.Decorr — Artesanía para el alma 💙</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const cantidades = document.querySelectorAll('.cantidad');
+    const subtotales = document.querySelectorAll('.subtotal');
+    const totalElem = document.getElementById('total');
+    const eliminarBtns = document.querySelectorAll('.eliminar');
+    const pagarBtn = document.getElementById('pagar-btn');
+
+    // Actualizar subtotal y total al cambiar cantidad
+    cantidades.forEach((input, index) => {
+      input.addEventListener('input', () => {
+        const precio = index === 0 ? 30000 : 20000;
+        const subtotal = precio * input.value;
+        subtotales[index].textContent = `$${subtotal.toLocaleString('es-CO')}`;
+        actualizarTotal();
+      });
+    });
+
+    // Eliminar producto
+    eliminarBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        btn.closest('tr').remove();
+        actualizarTotal();
+      });
+    });
+
+    // Calcular total
+    function actualizarTotal() {
+      let total = 0;
+      document.querySelectorAll('.subtotal').forEach(sub => {
+        total += Number(sub.textContent.replace(/\D/g, ''));
+      });
+      totalElem.textContent = `$${total.toLocaleString('es-CO')}`;
+    }
+
+    // Simular pago
+    pagarBtn.addEventListener('click', () => {
+      alert('💙 ¡Gracias por tu compra! Tu pedido de Vitta.Decorr está en proceso.');
+    });
+  </script>
+
+</body>
+</html>

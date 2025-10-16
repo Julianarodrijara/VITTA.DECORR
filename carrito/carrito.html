@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - Vitta.Decorr</title>
+  <link rel="stylesheet" href="../styles/carrito.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="menu-left">
+        <a href="../index/index.html" class="nav-link">Inicio</a>
+        <a href="../productos.html" class="nav-link">Productos</a>
+        <a href="../inscripcion/inscripcion.html" class="nav-link">Inscripción</a>
+        <a href="#" class="nav-link active">Carrito 🛒</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo Vitta.Decorr" class="logo-img">
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN CARRITO -->
+  <section class="carrito-section">
+    <div class="carrito-container">
+      <h1>Tu carrito de compras 💙</h1>
+
+      <table class="carrito-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="carrito-body"></tbody>
+      </table>
+
+      <div class="carrito-total">
+        <h2>Total: <span id="total">$0</span></h2>
+        <button id="pagar-btn" class="btn">Proceder al pago</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vitta.Decorr — Artesanía para el alma 💙</p>
+  </footer>
+
+  <script>
+    const carritoBody = document.getElementById('carrito-body');
+    const totalElem = document.getElementById('total');
+    const pagarBtn = document.getElementById('pagar-btn');
+
+    // Cargar el carrito desde localStorage o iniciar vacío
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [
+      { nombre: 'Kit Terapéutico (Crochet)', precio: 30000, cantidad: 1 },
+      { nombre: 'Suscripción Premium', precio: 20000, cantidad: 1 }
+    ];
+
+    // Mostrar productos
+    function renderCarrito() {
+      carritoBody.innerHTML = '';
+      carrito.forEach((producto, index) => {
+        const subtotal = producto.precio * producto.cantidad;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${producto.nombre}</td>
+          <td>$${producto.precio.toLocaleString('es-CO')}</td>
+          <td><input type="number" class="cantidad" value="${producto.cantidad}" min="1" data-index="${index}"></td>
+          <td class="subtotal">$${subtotal.toLocaleString('es-CO')}</td>
+          <td><button class="eliminar" data-index="${index}">❌</button></td>
+        `;
+        carritoBody.appendChild(row);
+      });
+      actualizarTotal();
+    }
+
+    // Actualizar total
+    function actualizarTotal() {
+      let total = 0;
+      carrito.forEach(p => total += p.precio * p.cantidad);
+      totalElem.textContent = `$${total.toLocaleString('es-CO')}`;
+      localStorage.setItem('carrito', JSON.stringify(carrito)); // guardar
+    }
+
+    // Cambiar cantidad
+    carritoBody.addEventListener('input', (e) => {
+      if (e.target.classList.contains('cantidad')) {
+        const index = e.target.dataset.index;
+        carrito[index].cantidad = parseInt(e.target.value);
+        renderCarrito();
+      }
+    });
+
+    // Eliminar producto
+    carritoBody.addEventListener('click', (e) => {
+      if (e.target.classList.contains('eliminar')) {
+        const index = e.target.dataset.index;
+        carrito.splice(index, 1);
+        renderCarrito();
+      }
+    });
+
+    // Simular pago
+    pagarBtn.addEventListener('click', () => {
+      if (carrito.length === 0) {
+        alert('🛒 Tu carrito está vacío.');
+        return;
+      }
+      alert('💙 ¡Gracias por tu compra! Tu pedido de Vitta.Decorr está en proceso.');
+      carrito = [];
+      localStorage.removeItem('carrito');
+      renderCarrito();
+    });
+
+    renderCarrito();
+  </script>
+
+</body>
+</html>
