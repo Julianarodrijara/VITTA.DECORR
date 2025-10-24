@@ -129,3 +129,139 @@ footer {
   font-weight: 500;
   margin-top: 40px;
 }
+
+/* --- ESTILO RESPONSIVO PARA VITTA.DECORR --- */
+
+/* Ajustes generales */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f7f3;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c8d9d4; /* azul pastel */
+  padding: 10px 20px;
+  flex-wrap: wrap; /* permite que los elementos bajen en pantallas pequeñas */
+}
+
+.menu-left {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #5a4633; /* marrón artesanal */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #8b5e3c; /* tono marrón más cálido */
+}
+
+/* LOGO */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 70px;
+  height: auto;
+}
+
+/* SECCIÓN PRINCIPAL */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, #f9f7f3 0%, #f4ebe1 100%);
+}
+
+.hero h1 {
+  color: #4a3b2a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #5a4633;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+button, .hero a {
+  background-color: #c8d9d4;
+  color: #4a3b2a;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .hero a:hover {
+  background-color: #a8c3b6;
+}
+
+/* --- MEDIA QUERIES PARA CELULARES --- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-left {
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-link {
+    padding: 8px 0;
+    font-size: 1rem;
+  }
+
+  .logo-img {
+    width: 60px;
+    margin-top: 10px;
+  }
+
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  button, .hero a {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .logo-img {
+    width: 50px;
+  }
+}
